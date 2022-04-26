@@ -13,11 +13,14 @@
 
   box-shadow: 25px 25px 25px grey;
 }
-.Button:hover {
+.over {
   border: 1px solid black;
   box-shadow: 20px 20px 25px grey;
 }
 .clicked {
   border: 1px ridge grey;
   box-shadow: 10px 10px 25px grey;
+}
+.Button--lambda{
+    color:blue;
 }
