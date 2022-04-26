@@ -16,4 +16,7 @@ Button.propTypes={
     bgColor: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
 }
+Button.defaultProps={
+    bgColor:'grey'
+}
 export default Button;
