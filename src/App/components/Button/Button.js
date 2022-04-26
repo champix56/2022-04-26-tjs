@@ -8,7 +8,7 @@ const Button = (props) => {
       className={style.Button}
       style={{ color: props.color, backgroundColor: props.bgColor }}
     >
-      Benjamin
+      {props.children}
     </button>
   );
 };
