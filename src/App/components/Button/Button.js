@@ -21,23 +21,17 @@ const Button = (props) => {
   }
   return (
     <button
-      className={style['Button--lambda']}
+      className={className}
       style={{ color: props.color, backgroundColor: props.bgColor }}
       onClick={(evt) => {
         // console.log(evt);
         setClicked(true);
         props.onButtonClicked();
       }}
-      onMouseEnter={() => {
-        setOver(true);
-      }}
-      onMouseLeave={() => {
-        setOver(false);
-      }}
+      onMouseEnter={() => {setOver(true);}}
+      onMouseLeave={() => {setOver(false);}}
     >
       {props.children}
-      <br />
-      {isClicked.toString()}
     </button>
   );
 };
