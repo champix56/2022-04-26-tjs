@@ -26,7 +26,7 @@ const Button = (props) => {
       onClick={(evt) => {
         // console.log(evt);
         setClicked(true);
-        //    console.log("value de isClicked:",isClicked);
+        props.onButtonClicked();
       }}
       onMouseEnter={() => {
         setOver(true);
@@ -44,8 +44,10 @@ const Button = (props) => {
 Button.propTypes = {
   bgColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  onButtonClicked: PropTypes.func.isRequired
 };
 Button.defaultProps = {
   bgColor: "grey",
+  color:'white'
 };
 export default Button;
