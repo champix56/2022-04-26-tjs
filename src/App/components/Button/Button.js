@@ -12,6 +12,7 @@ const Button = (props) => {
         setClicked(false);
       }, 300);
     }
+    // return ()=>{console.log('unmountbutton')}
   }, [isClicked]);
   let className = style.Button;
   if (isClicked) {
@@ -26,10 +27,10 @@ const Button = (props) => {
       onClick={(evt) => {
         // console.log(evt);
         setClicked(true);
-        props.onButtonClicked();
+        props.onButtonClicked()
       }}
-      onMouseEnter={() => {setOver(true);}}
-      onMouseLeave={() => {setOver(false);}}
+      onMouseEnter={() => {setOver(true)}}
+      onMouseLeave={() => {setOver(false)}}
     >
       {props.children}
     </button>
