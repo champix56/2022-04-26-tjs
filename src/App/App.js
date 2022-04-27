@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FlexH from "./components/layout/FlexH/FlexH";
 import FlexW from "./components/layout/FlexW/FlexW";
+import MemeSvgViewer from "./components/ui/MemeSvgViewer/MemeSvgViewer";
 const appInitialState = {
   meme: {
     text: "Le react c'est cool",
@@ -18,9 +19,9 @@ const appInitialState = {
     {
       id:0,
       name:'image',
-      url:'',
-      w:1280,
-      h:720
+      url:'futurama1.jpg',
+      w:1200,
+      h:675
     }
   ]
 };
@@ -32,7 +33,7 @@ function App(props) {
       <div>Nav</div>
       <FlexH>
         <FlexW>
-          <div>Viewer</div>
+          <MemeSvgViewer meme={state.meme} image={}/>
           <div>Editor</div>
         </FlexW>
       </FlexH>
