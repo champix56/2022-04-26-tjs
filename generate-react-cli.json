@@ -44,11 +44,11 @@
     "layoutfunc":{
       "path": "src/App/components/layout",
       "withStyle": true,
-      "withTest": true,
-      "withStory": true,
+      "withTest": false,
+      "withStory": false,
       "withLazy": false,
       "customTemplates":{
-        "component":"grc/class/TemplateName.js"
+        "component":"grc/layoutfunc/TemplateName.tsx"
       }
     }
   }
