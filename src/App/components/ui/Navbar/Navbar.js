@@ -20,6 +20,9 @@ const Navbar = (props) => {
             <LinkContainer to="/editor">
               <Nav.Link>New</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/editor/1">
+              <Nav.Link>Edit 1</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Container>
       </NavBar>
