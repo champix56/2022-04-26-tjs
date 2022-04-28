@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import MemeSvgViewer from "../ui/MemeSvgViewer/MemeSvgViewer";
+import MemeSvgViewer from "../MemeSvgViewer/MemeSvgViewer";
 export const MemeThumbnail = (props) => {
   return (
     <div className={StyleSheet.MemeThumbnail} test-id="MemeThumbnail">
