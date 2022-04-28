@@ -17,6 +17,7 @@
     "react-bootstrap": "^2.3.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "typescript": "^4.6.3",
@@ -29,7 +30,7 @@
     "eject": "react-scripts eject",
     "layout-cmp": "npx generate-react-cli c --type=layoutfunc",
     "json": "json-server -p 5679 db/db.json",
-    "runAll":"npm run json | npm start"
+    "runAll": "npm run json | npm start"
   },
   "eslintConfig": {
     "extends": [
