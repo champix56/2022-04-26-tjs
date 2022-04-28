@@ -6,6 +6,7 @@ import { REST_ADR, REST_RESSOURCES } from "../config/config";
 export const ACTIONS_CURRENT = Object.freeze({
   UPDATE_CURRENT: "UPDATE_CURRENT",
   CLEAR_CURRENT: "CLEAR_CURRENT",
+  SAVE_CURRENT: "SAVE_CURRENT",
 });
 export const initialCurrentMeme = {
   text: "",
@@ -31,24 +32,43 @@ function currentReducer(state = initialCurrentMeme, action) {
       return { ...state, ...action.value };
     case ACTIONS_CURRENT.CLEAR_CURRENT:
       return { ...initialCurrentMeme };
+    case ACTIONS_CURRENT.SAVE_CURRENT:
+      fetch(
+        `${REST_ADR}${REST_RESSOURCES.MEMES}${
+          undefined !== state.id ? "/" + state.id : ""
+        }`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          method: undefined !== state.id ? "PUT" : "POST",
+          body: JSON.stringify(state),
+        }
+      )
+        .then((f) => {
+          return f.json();
+        })
+        .then((o) => {
+          store.dispatch({ type: "ADD_MEME", value: o });
+        });
+      return { ...initialCurrentMeme };
     default:
       return state;
   }
 }
 
 export const initialRessources = {
-    memes:[],
-    images:[]
-
-}
-export const ACTIONS_RESSOURCES=Object.freeze({
-    
-})
-function ressourcesReducer (state = initialRessources,action) {
+  memes: [],
+  images: [],
+};
+export const ACTIONS_RESSOURCES = Object.freeze({});
+function ressourcesReducer(state = initialRessources, action) {
   switch (action.type) {
-
-  case 'INIT':
-    const promiseMemes = fetch(`${REST_ADR}${REST_RESSOURCES.MEMES}`, {
+    case "ADD_MEME":
+      return { ...state, memes: [...state.memes, action.value] };
+    case "INIT":
+      const promiseMemes = fetch(`${REST_ADR}${REST_RESSOURCES.MEMES}`, {
         headers: { Accept: "application/json" },
         method: "GET",
       }).then((f) => {
@@ -62,20 +82,22 @@ function ressourcesReducer (state = initialRessources,action) {
         }
       );
       Promise.all([promiseImage, promiseMemes]).then((tab_promiseObject) => {
-        store.dispatch({type:'LOAD_RESSOURCES',values:tab_promiseObject});
+        store.dispatch({ type: "LOAD_RESSOURCES", values: tab_promiseObject });
       });
-    return state;
-      case 'LOAD_RESSOURCES':return {...state,images:action.values[0],memes:action.values[1]}
-  default:
-    return state
+      return state;
+    case "LOAD_RESSOURCES":
+      return { ...state, images: action.values[0], memes: action.values[1] };
+    default:
+      return state;
   }
 }
 
-
-
-const combinedReducers=combineReducers({ressources:ressourcesReducer,current:currentReducer});
+const combinedReducers = combineReducers({
+  ressources: ressourcesReducer,
+  current: currentReducer,
+});
 const store = createStore(
-    combinedReducers,
+  combinedReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 store.subscribe(() => {
@@ -83,4 +105,4 @@ store.subscribe(() => {
 });
 export default store;
 
-store.dispatch({type:'INIT'})
+store.dispatch({ type: "INIT" });
