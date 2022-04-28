@@ -1,0 +1,7 @@
+.MemeThumbnail {
+    display: flex;
+    justify-content: space-evenly;
+}
+.MemeThumbnail > svg{
+    max-width: 25vh;
+}
