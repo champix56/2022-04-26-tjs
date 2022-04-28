@@ -177,7 +177,8 @@ export default MemeForm;
 function mapStateToProps(state,ownProps){
   return {
     ...ownProps,
-    meme:state
+    meme:state.current,
+    images:state.ressources.images
   }
 }
 function mapDispatchToProps(dispatch){

@@ -5,7 +5,8 @@ import SVGViewer from "./MemeSvgViewer";
 function mstp(s, p) {
   return {
     ...p,
-    meme: s,
+    meme: s.current,
+    image:s.ressources.images.find(img=>img.id===s.current.imageId)
   };
 }
 function mdtp(d) {

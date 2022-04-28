@@ -25,47 +25,15 @@ const appInitialState = {
 let isloaded=false;
 
 function App(props) {
-  const [state, setstate] = useState(appInitialState);
-  useEffect(() => {
-    if(isloaded){return}
 
-    // store.subscribe(()=>{
-    //   setstate({meme:store.getState()})
-    // })
-    //store.dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:state.meme})
-    isloaded=true;
-    const promiseMemes = fetch(`${REST_ADR}${REST_RESSOURCES.MEMES}`, {
-      headers: { Accept: "application/json" },
-      method: "GET",
-    }).then((f) => {
-      console.log(f);
-      return f.json();
-    });
-    const promiseImage = fetch(`${REST_ADR}${REST_RESSOURCES.IMAGES}`).then(
-      (f) => {
-        console.log(f);
-        return f.json();
-      }
-    );
-    Promise.all([promiseImage, promiseMemes]).then((tab_promiseObject) => {
-      setstate({
-        ...state,
-        images: tab_promiseObject[0],
-        memes: tab_promiseObject[1],
-      });
-    });
-  }, []);
-
-  return (
+   return (
     <div className="App" style={{ height: "90vh" }}>
       <div>Header</div>
       <Navbar />
       <FlexH>
         <FlexW>
-          <MemeSvgViewer
-            image={state.images.find((img) => img.id === state.meme.imageId)}
-          />
-          <ConnectedMemeForm images={state.images}/>
+          <MemeSvgViewer/>
+          <ConnectedMemeForm />
         </FlexW>
       </FlexH>
       <div>Footer</div>
