@@ -3,7 +3,7 @@ import Button from "../ui/Button/Button";
 import styles from "./MemeForm.module.scss";
 import PropTypes from "prop-types";
 import {connect} from 'react-redux'
-import { isCallOrNewExpression } from "typescript";
+
 import { ACTIONS_CURRENT } from "../../store/store";
 const MemeForm = (props) => {
   return (
@@ -12,6 +12,7 @@ const MemeForm = (props) => {
       <div data-testid="MemeForm" className={styles.MemeForm}>
         <form onSubmit={(evt)=>{
           evt.preventDefault();
+          props.saveMeme();
         }}>
           <h1>Titre</h1>
           <input
@@ -171,6 +172,7 @@ MemeForm.propTypes = {
   meme: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired,
   onFormChange: PropTypes.func.isRequired,
+  saveMeme: PropTypes.func.isRequired
 };
 export default MemeForm;
 
@@ -185,6 +187,10 @@ function mapDispatchToProps(dispatch){
   return {
     onFormChange:(newMeme)=>{
       dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:newMeme})
+    },
+    saveMeme:()=>{
+      dispatch({type:ACTIONS_CURRENT.SAVE_CURRENT})
+
     }
   }
 }
