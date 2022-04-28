@@ -16,8 +16,9 @@ export const MemeThumbnail = (props) => {
   );
 };
 
-const mapStateToProps = (state, props) => ({ ...props, ...state.ressources });
+const mapStateToProps = (state, props) => {
+  return { ...props, ...state.ressources };}
 
-const mapDispatchToProps = () => {};
+const mapDispatchToProps = () => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MemeThumbnail);
