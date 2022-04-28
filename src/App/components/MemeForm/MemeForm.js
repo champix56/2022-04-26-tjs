@@ -24,11 +24,18 @@ const MemeForm = (props) => {
           <select
             value={props.meme.imageId}
             onChange={(evt) => {
-              props.onFormChange({ ...props.meme, imageId:Number(evt.target.value) });
+              props.onFormChange({
+                ...props.meme,
+                imageId: Number(evt.target.value),
+              });
             }}
           >
             <option value="-1">Aucune</option>
-            {props.images.map((e,i)=><option value={e.id} key={`select-image-${i}`}>{e.name}</option>)}
+            {props.images.map((e, i) => (
+              <option value={e.id} key={`select-image-${i}`}>
+                {e.name}
+              </option>
+            ))}
           </select>
           <hr />
           <h2>text</h2>
