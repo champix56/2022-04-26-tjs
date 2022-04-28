@@ -18,15 +18,7 @@ function App(props) {
         <FlexH>
           <Routes>
             <Route path="/thumbnail" element={<MemeThumbnail />} />
-            <Route
-              path="/editor"
-              element={
-                <FlexW>
-                  <MemeSvgViewer />
-                  <ConnectedMemeForm />
-                </FlexW>
-              }
-            />
+            <Route path="/editor" element={<MemeEditor />} />
           </Routes>
         </FlexH>
         <div>Footer</div>
@@ -34,5 +26,12 @@ function App(props) {
     </div>
   );
 }
-
+function MemeEditor() {
+  return (
+    <FlexW>
+      <MemeSvgViewer />
+      <ConnectedMemeForm />
+    </FlexW>
+  );
+}
 export default App;
