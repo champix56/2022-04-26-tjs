@@ -12,6 +12,45 @@
       "underline": true,
       "italic": false,
       "name": "mon 1er meme"
+    },
+    {
+      "id": 1,
+      "text": "SLEEP DEEPER",
+      "x": 20,
+      "y": 20,
+      "fontSize": 20,
+      "fontWeight": "900",
+      "color": "#FFFFFF",
+      "imageId": 1,
+      "underline": true,
+      "italic": false,
+      "name": "mon 1er meme"
+    },
+    {
+      "id": 2,
+      "text": "Le react c'est cool",
+      "x": 20,
+      "y": 20,
+      "fontSize": 20,
+      "fontWeight": "900",
+      "color": "#000000",
+      "imageId": 0,
+      "underline": true,
+      "italic": false,
+      "name": "mon 1er meme"
+    },
+    {
+      "id": 3,
+      "text": "Le react c'est cool",
+      "x": 20,
+      "y": 20,
+      "fontSize": 20,
+      "fontWeight": "900",
+      "color": "#000000",
+      "imageId": 1,
+      "underline": true,
+      "italic": false,
+      "name": "mon 1er meme"
     }
   ],
   "images": [
