@@ -52,7 +52,7 @@ function App(props) {
 
   return (
     <div className="App" style={{ height: "90vh" }}>
-      <div>Header</div>:{}
+      <div>Header</div>
       <Navbar />
       <FlexH>
         <FlexW>
