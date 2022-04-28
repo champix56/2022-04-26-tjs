@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import MemeSvgViewer from "../MemeSvgViewer/MemeSvgViewer";
+import style from './MemeThumbnail.module.scss'
 export const MemeThumbnail = (props) => {
   return (
-    <div className={StyleSheet.MemeThumbnail} test-id="MemeThumbnail">
+    <div className={style.MemeThumbnail} test-id="MemeThumbnail">
       {props.memes.map((e, i) => (
         <MemeSvgViewer
           key={`th${i}`}
