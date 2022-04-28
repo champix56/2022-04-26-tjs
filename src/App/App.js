@@ -11,7 +11,7 @@ function App(props) {
   return (
     <div className="App" style={{ height: "90vh" }}>
     <Router>
-      <div><Link to="/thumbnail">thumbnail</Link> | <Link to="/editor"></Link></div>
+      <div><Link to="/thumbnail">thumbnail</Link> | <Link to="/editor">New</Link></div>
       <Navbar />
       <FlexH>
         <Routes>
