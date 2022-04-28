@@ -6,8 +6,6 @@ import MemeSvgViewer from "./components/ui/MemeSvgViewer/ConnectedMemeSvgViewer"
 import  MemeThumbnail  from "./components/ui/MemeThumbnail/MemeThumbnail";
 import Navbar from "./components/ui/Navbar/Navbar";
 
-let isloaded=false;
-
 function App(props) {
 
    return (
