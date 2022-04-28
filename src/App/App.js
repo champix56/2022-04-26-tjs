@@ -35,7 +35,8 @@ const mstp=(s)=>{
 const mdtp=(dispatch)=>{
   return {
     setCurrent:(meme)=>{
-        dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:meme})
+      if(undefined===meme)dispatch({type:ACTIONS_CURRENT.CLEAR_CURRENT})
+      else dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:meme})
     }
   }
 }
