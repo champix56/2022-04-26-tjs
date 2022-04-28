@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import FlexH from "./components/layout/FlexH/FlexH";
 import FlexW from "./components/layout/FlexW/FlexW";
-import MemeForm from "./components/MemeForm/MemeForm";
+import {ConnectedMemeForm} from "./components/MemeForm/MemeForm";
 import MemeSvgViewer from "./components/ui/MemeSvgViewer/MemeSvgViewer";
 import Navbar from "./components/ui/Navbar/Navbar";
 import { REST_ADR, REST_RESSOURCES } from "./config/config";
+import store, { ACTIONS_CURRENT } from './store/store'
 const appInitialState = {
   meme: {
     text: "Le react c'est cool",
@@ -27,6 +28,11 @@ function App(props) {
   const [state, setstate] = useState(appInitialState);
   useEffect(() => {
     if(isloaded){return}
+
+    // store.subscribe(()=>{
+    //   setstate({meme:store.getState()})
+    // })
+    //store.dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:state.meme})
     isloaded=true;
     const promiseMemes = fetch(`${REST_ADR}${REST_RESSOURCES.MEMES}`, {
       headers: { Accept: "application/json" },
@@ -60,13 +66,7 @@ function App(props) {
             meme={state.meme}
             image={state.images.find((img) => img.id === state.meme.imageId)}
           />
-          <MemeForm
-            meme={state.meme}
-            images={state.images}
-            onFormChange={(newMeme) => {
-              setstate({ ...state, meme: newMeme });
-            }}
-          />
+          <ConnectedMemeForm images={state.images}/>
         </FlexW>
       </FlexH>
       <div>Footer</div>

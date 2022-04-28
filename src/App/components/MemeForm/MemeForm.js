@@ -2,7 +2,9 @@ import React from "react";
 import Button from "../ui/Button/Button";
 import styles from "./MemeForm.module.scss";
 import PropTypes from "prop-types";
-
+import {connect} from 'react-redux'
+import { isCallOrNewExpression } from "typescript";
+import { ACTIONS_CURRENT } from "../../store/store";
 const MemeForm = (props) => {
   return (
     <>
@@ -171,3 +173,18 @@ MemeForm.propTypes = {
   onFormChange: PropTypes.func.isRequired,
 };
 export default MemeForm;
+
+function mapStateToProps(state,ownProps){
+  return {
+    ...ownProps,
+    meme:state
+  }
+}
+function mapDispatchToProps(dispatch){
+  return {
+    onFormChange:(newMeme)=>{
+      dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:newMeme})
+    }
+  }
+}
+export const ConnectedMemeForm=connect(mapStateToProps,mapDispatchToProps)(MemeForm)
