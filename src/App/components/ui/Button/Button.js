@@ -22,11 +22,13 @@ const Button = (props) => {
   }
   return (
     <button
+      type={props.type}
       className={className}
       style={{ color: props.color, backgroundColor: props.bgColor }}
       onClick={(evt) => {
         // console.log(evt);
         setClicked(true);
+        //if(undefined!==props.onButtonClicked && typeof props.onButtonClicked==='function')
         props.onButtonClicked()
       }}
       onMouseEnter={() => {setOver(true)}}
@@ -39,10 +41,13 @@ const Button = (props) => {
 Button.propTypes = {
   bgColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  onButtonClicked: PropTypes.func.isRequired
+  onButtonClicked: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 Button.defaultProps = {
   bgColor: "grey",
-  color:'white'
+  color:'white',
+  type:'button',
+  onButtonClicked:()=>{}
 };
 export default Button;

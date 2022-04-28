@@ -1,0 +1,33 @@
+{
+  "memes": [
+    {
+      "id": 0,
+      "text": "Le react c'est cool",
+      "x": 20,
+      "y": 20,
+      "fontSize": 20,
+      "fontWeight": "900",
+      "color": "#000000",
+      "imageId": 0,
+      "underline": true,
+      "italic": false,
+      "name": "mon 1er meme"
+    }
+  ],
+  "images": [
+    {
+      "id": 0,
+      "name": "image",
+      "url": "futurama1.jpg",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "id": 1,
+      "name": "image",
+      "url": "Bart_Simpsons.jpg",
+      "w": 972,
+      "h": 720
+    }
+  ]
+}
